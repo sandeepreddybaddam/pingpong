@@ -81,6 +81,31 @@ In Cross Entropy Method, each iteration here corresponds to <=800 games(20 playe
 For the given training time, Policy Gradients ran for 9756 episodes. The final average reward is **3.01** which indicates that the agent can beat hard-coded player with **0.5714** probability.
 ![PG_training](https://user-images.githubusercontent.com/100727983/207396771-fda02bc0-be2c-44f6-9593-673ccbb8b454.png)
 
+**Hyperparmaters:**
+
+1. CEM
+    - weight_cols = 6 # because of six hand-crafted features
+    - mean = zeros of size weight_cols # Initialization
+    - cov = Identity matrix of size weight_cols * 100
+    - percentile = 0.3 # for elite sample consideration
+    - r_percentile = 0.1
+    - batch_size = 20 # number of players
+    - episodes = 40 # number of episodes each player plays
+    - episodes_end = 10 (varying episodes concept)
+    - maxits = 100
+ 
+2. DQN
+    - lr = 1e-4
+    - batch_size = 32
+    - GAMMA = 0.99
+
+3. PG
+    - batch_size = 10 # episodes frequency for parameter update
+    - learning_rate = 1e-3
+    - gamma = 0.99 # discount factor in reward computation
+    - decay_rate = 0.99 # decay factor for RMSProp
+
+
 #### Evaluation and Results
 
 This can be considered as tesing step. In RL, especially when building AI player, the performance that we obtain during training phase is very much in-line with testing as the player actually evaluate itself during training.
